@@ -1,12 +1,16 @@
 package course.project;
 
 public class CoffeeMachine {
-    private double waterCapacity, beanCapacity, currentWaterLevel, currentBeansLevel;
+    private double waterCapacity, robustaCapacity, arabicaCapacity, currentWaterLevel, currentBeansLevel;
     private int maxServedCups, servedCups;
     private Grinder coffeeGrinder;
     private Coffee coffee;
 
-    public CoffeeMachine(double waterCapacity, double beanCapacity, String coffeeType, double grindSize) {
+    public CoffeeMachine(double waterCapacity, double robustaCapacity, double arabicaCapacity, String coffeeType, double grindSize) {
+        
+    }
+    
+    public CoffeeMachine() {
         
     }
     
@@ -35,10 +39,13 @@ public class CoffeeMachine {
     }
     
     public boolean needsCleaning() {
-        
+        return true;
     }
 
     public String getInfo() {
-        return "Water capacity = " + waterCapacity + ", Bean capacity = " + beanCapacity + ", Current water level = " + currentWaterLevel + ", Current beans level = " + currentBeansLevel + ", Max served cups = " + maxServedCups + ", Served cups = " + servedCups;
+        return "Water capacity = " + waterCapacity + ", Robusta capacity = " + robustaCapacity 
+                + ", Arabica capacity = " + arabicaCapacity + ", Current water level = " + currentWaterLevel 
+                + ", Current beans level = " + currentBeansLevel + ", Max served cups = " + maxServedCups 
+                + ", Served cups = " + servedCups;
     }
 }

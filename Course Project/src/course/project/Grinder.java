@@ -26,7 +26,7 @@ public class Grinder {
     }
 
     public void grindCoffee(Coffee coffee, double amountOfCoffee) {
-
+        
     }
 
     public String getInfo() {
