@@ -25,10 +25,6 @@ public class Grinder {
         this.amountOfCoffee = amountOfCoffee;
     }
 
-    public void grindCoffee(Coffee coffee, double amountOfCoffee) {
-        
-    }
-
     public String getInfo() {
         return "Grind size = " + grindSize + ", Amount of coffee = " + amountOfCoffee;
     }

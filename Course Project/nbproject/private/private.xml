@@ -4,6 +4,11 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/repos/Coffee-Machine/Course%20Project/src/course/project/Espresso.java</file>
+            <file>file:/C:/repos/Coffee-Machine/Course%20Project/src/course/project/Grinder.java</file>
+            <file>file:/C:/repos/Coffee-Machine/Course%20Project/src/course/project/GUI.java</file>
+            <file>file:/C:/repos/Coffee-Machine/Course%20Project/src/course/project/Americano.java</file>
+            <file>file:/C:/repos/Coffee-Machine/Course%20Project/src/course/project/EmptyValuesException.java</file>
+            <file>file:/C:/repos/Coffee-Machine/Course%20Project/src/course/project/CoffeeMachine.java</file>
         </group>
     </open-files>
 </project-private>

@@ -3,38 +3,36 @@ package course.project;
 import javax.swing.JOptionPane;
 
 public class GUI extends javax.swing.JFrame {
-    private String coffeeType;
+    private String coffeeType, cupSize;
 
     public GUI() {
         initComponents();
-        
-        
     }
     
-    public int getWaterCapacity() {
+    public int getWaterLevel() {
         return waterLevelBar.getValue() * 20;
     }
     
-    public void setWaterCapacity(int value) {
+    public void setWaterLevel(int value) {
         waterLevelBar.setValue(value / 20);
     }
     
-    public int getRobustaCapacity() {
+    public int getRobustaLevel() {
         return robustaLevelBar.getValue() * 10;
     }
     
-    public void setRobustaCapacity(int value) {
+    public void setRobustaLevel(int value) {
         robustaLevelBar.setValue(value / 10);
     }
     
-    public int getArabicaCapacity() {
-        return waterLevelBar.getValue() * 10;
+    public int getArabicaLevel() {
+        return arabicaLevelBar.getValue() * 10;
     }
     
-    public void setArabicaCapacity(int value) {
+    public void setArabicaLevel(int value) {
         arabicaLevelBar.setValue(value / 10);
     }
-
+    
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -70,8 +68,8 @@ public class GUI extends javax.swing.JFrame {
         jSeparator6 = new javax.swing.JSeparator();
         jPanel7 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
-        survedCupsBar = new javax.swing.JProgressBar();
+        servedCupsText = new javax.swing.JTextField();
+        servedCupsBar = new javax.swing.JProgressBar();
         jButton5 = new javax.swing.JButton();
         jSeparator7 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
@@ -228,14 +226,19 @@ public class GUI extends javax.swing.JFrame {
 
         arabicaLevelBar.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel11.setText("Number of surved cups after the last cleaning");
+        jLabel11.setText("Number of served cups after the last cleaning");
 
-        jTextField1.setEditable(false);
-        jTextField1.setText("0");
+        servedCupsText.setEditable(false);
+        servedCupsText.setText("0");
 
-        survedCupsBar.setForeground(new java.awt.Color(255, 255, 255));
+        servedCupsBar.setForeground(new java.awt.Color(255, 255, 255));
 
         jButton5.setText("Clean the machine");
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -247,9 +250,9 @@ public class GUI extends javax.swing.JFrame {
                         .addContainerGap()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(servedCupsText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(survedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(servedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(27, 27, 27)
                 .addComponent(jButton5)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
@@ -263,8 +266,8 @@ public class GUI extends javax.swing.JFrame {
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(survedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(servedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(servedCupsText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addGap(41, 41, 41)
                         .addComponent(jButton5)))
@@ -368,9 +371,7 @@ public class GUI extends javax.swing.JFrame {
 
         jPanel6.setForeground(new java.awt.Color(255, 255, 255));
 
-        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Bell MT", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("COFFEE MACHINE");
         jLabel1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -500,7 +501,7 @@ public class GUI extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(28, 28, 28)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
@@ -540,18 +541,50 @@ public class GUI extends javax.swing.JFrame {
             else if (americano.isSelected())
                 coffeeType = "americano";
             
-            else throw new EmptyValuesException();
+            else throw new CustomException("Please select a coffee type!");
+            
+            if (single.isSelected()) 
+                cupSize = "single";
+            
+            else if (Double.isSelected())
+                cupSize = "Double";
+            
+            else throw new CustomException("Please select the cup size!");
         }
-        catch(EmptyValuesException e) {
+        catch(CustomException e) {
+            
+        }
+        
+        CoffeeMachine coffeeMachine = new CoffeeMachine(getWaterLevel(), getRobustaLevel(),
+                getArabicaLevel(), coffeeType, cupSize, grindSizeBar.getValue());
+        
+        try {
+            if (coffeeMachine.getCoffee().amountOfWater > getWaterLevel())
+                throw new CustomException("There's no enough water, please add some!");
+            
+            if ((coffeeMachine.getCoffee().amountOfGroundCoffee * coffeeMachine.getCoffee().robustaRatio) > getRobustaLevel())
+                throw new CustomException("There's no enough Robusta beans, please add some!");
+            
+            if ((coffeeMachine.getCoffee().amountOfGroundCoffee * coffeeMachine.getCoffee().arabicaRatio) > getArabicaLevel())
+                throw new CustomException("There's no enough Arabica beans, please add some!");
+             
+            if (servedCupsBar.getValue() / 10 >= 10)
+                throw new CustomException("The drip tray is full, please clean it!");
+        }
+        catch(CustomException e) {
             return;
         }
         
-        CoffeeMachine coffeeMachine = new CoffeeMachine(getWaterCapacity(), getRobustaCapacity(),
-                getArabicaCapacity(), coffeeType, grindSizeBar.getValue());
+        servedCupsBar.setValue(servedCupsBar.getValue() + 10);
+        servedCupsText.setText(String.valueOf(servedCupsBar.getValue() / 10));
         
+        coffeeMachine.brewCoffee();
         
+        setWaterLevel(coffeeMachine.getCurrentWaterLevel());
+        setRobustaLevel(coffeeMachine.getCurrentRobustaLevel());
+        setArabicaLevel(coffeeMachine.getCurrentArabicaLevel());
     }//GEN-LAST:event_prepareActionPerformed
-
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         if (waterLevelBar.getValue() == 100)
             JOptionPane.showMessageDialog(this, "Already full!");
@@ -575,6 +608,11 @@ public class GUI extends javax.swing.JFrame {
         else
             arabicaLevelBar.setValue(arabicaLevelBar.getValue() + 20);
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        servedCupsBar.setValue(0);
+        servedCupsText.setText("0");
+    }//GEN-LAST:event_jButton5ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -655,13 +693,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JButton prepare;
     private javax.swing.JProgressBar robustaLevelBar;
+    private javax.swing.JProgressBar servedCupsBar;
+    private javax.swing.JTextField servedCupsText;
     private javax.swing.JRadioButton single;
-    private javax.swing.JProgressBar survedCupsBar;
     private javax.swing.JProgressBar waterLevelBar;
     // End of variables declaration//GEN-END:variables
 }
