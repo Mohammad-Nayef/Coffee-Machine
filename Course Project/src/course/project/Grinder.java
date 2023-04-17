@@ -8,6 +8,15 @@ public class Grinder {
         this.grindSize = grindSize;
         this.amountOfCoffee = amountOfCoffee;
     }
+    
+    public int grindingWater() {
+        double neededWater;
+        
+        //The amount of hot water that's used to grind the coffee
+        //The larger grind size, the less consumed water
+        neededWater = amountOfCoffee * 2 + 0.5 * (100 - grindSize);
+        return (int)neededWater;
+    }
 
     public double getGrindSize() {
         return grindSize;

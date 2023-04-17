@@ -1,7 +1,9 @@
 package course.project;
 
+import javax.swing.JOptionPane;
+
 public class CoffeeMachine {
-    private final int waterCapacity = 2000, robustaCapacity = 1000, arabicaCapacity = 1000; 
+    private final int waterCapacity = 2000, robustaCapacity = 250, arabicaCapacity = 250; 
     private int currentWaterLevel, currentArabicaLevel, currentRobustaLevel;
     private final int maxServedCups = 10;
     private Grinder coffeeGrinder;
@@ -33,20 +35,13 @@ public class CoffeeMachine {
         currentWaterLevel -= coffee.amountOfWater;
         currentRobustaLevel -= coffee.getAmountOfGroundCoffee() * coffee.robustaRatio;
         currentArabicaLevel -= coffee.getAmountOfGroundCoffee() * coffee.arabicaRatio;
+        currentWaterLevel -= coffeeGrinder.grindingWater();
     }
     
-    public void addWater(double amount) {
-  
+    public int getAmountOfGrindingWater() {
+        return coffeeGrinder.grindingWater();
     }
     
-    public void addBeans(double amount) {
-        
-    }
-    
-    public void cleanMachine() {
-        
-    }
-
     public int getCurrentWaterLevel() {
         return currentWaterLevel;
     }
@@ -59,10 +54,6 @@ public class CoffeeMachine {
         return currentRobustaLevel;
     }
     
-    public boolean needsCleaning() {
-        return true;
-    }
-
     public String getInfo() {
         return "Water capacity = " + waterCapacity + ", Robusta capacity = " + robustaCapacity 
                 + ", Arabica capacity = " + arabicaCapacity + ", Current water level = " + currentWaterLevel 

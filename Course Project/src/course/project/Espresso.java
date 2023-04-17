@@ -7,9 +7,11 @@ public class Espresso extends Coffee {
         arabicaRatio = 0.7;
         robustaRatio = 0.3;
         
-        if (size.equals("double")) {
+        if (size.equals("Double")) {
             amountOfGroundCoffee *= 2;
             amountOfWater *= 2;
         }
+        
+        super.calculate();
     }
 }

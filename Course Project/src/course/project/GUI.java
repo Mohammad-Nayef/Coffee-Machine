@@ -18,19 +18,19 @@ public class GUI extends javax.swing.JFrame {
     }
     
     public int getRobustaLevel() {
-        return robustaLevelBar.getValue() * 10;
+        return (int)(robustaLevelBar.getValue() * 2.5);
     }
     
     public void setRobustaLevel(int value) {
-        robustaLevelBar.setValue(value / 10);
+        robustaLevelBar.setValue((int)(value / 2.5));
     }
     
     public int getArabicaLevel() {
-        return arabicaLevelBar.getValue() * 10;
+        return (int)(arabicaLevelBar.getValue() * 250);
     }
     
     public void setArabicaLevel(int value) {
-        arabicaLevelBar.setValue(value / 10);
+        arabicaLevelBar.setValue((int)(value / 250));
     }
     
     @SuppressWarnings("unchecked")
@@ -71,6 +71,7 @@ public class GUI extends javax.swing.JFrame {
         servedCupsText = new javax.swing.JTextField();
         servedCupsBar = new javax.swing.JProgressBar();
         jButton5 = new javax.swing.JButton();
+        jLabel18 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -84,9 +85,11 @@ public class GUI extends javax.swing.JFrame {
         jLabel14 = new javax.swing.JLabel();
         jPanel9 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        caloriesText = new javax.swing.JTextField();
         jLabel16 = new javax.swing.JLabel();
-        jTextField3 = new javax.swing.JTextField();
+        caffeineText = new javax.swing.JTextField();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel17 = new javax.swing.JLabel();
         jSeparator8 = new javax.swing.JSeparator();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -217,14 +220,20 @@ public class GUI extends javax.swing.JFrame {
         jLabel3.setText("Water level (out of 2 Liters)");
 
         waterLevelBar.setForeground(new java.awt.Color(255, 255, 255));
+        waterLevelBar.setValue(100);
+        waterLevelBar.setStringPainted(true);
 
-        jLabel9.setText("Robusta beans level (out of 1Kg)");
+        jLabel9.setText("Robusta beans level (out of 250g)");
 
         robustaLevelBar.setForeground(new java.awt.Color(255, 255, 255));
+        robustaLevelBar.setValue(100);
+        robustaLevelBar.setStringPainted(true);
 
-        jLabel10.setText("Arabica beans level (out of 1Kg)");
+        jLabel10.setText("Arabica beans level (out of 250g)");
 
         arabicaLevelBar.setForeground(new java.awt.Color(255, 255, 255));
+        arabicaLevelBar.setValue(100);
+        arabicaLevelBar.setStringPainted(true);
 
         jLabel11.setText("Number of served cups after the last cleaning");
 
@@ -232,6 +241,7 @@ public class GUI extends javax.swing.JFrame {
         servedCupsText.setText("0");
 
         servedCupsBar.setForeground(new java.awt.Color(255, 255, 255));
+        servedCupsBar.setStringPainted(true);
 
         jButton5.setText("Clean the machine");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
@@ -240,36 +250,42 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
+        jLabel18.setText("cup(s)");
+
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
         jPanel7Layout.setHorizontalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 253, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(servedCupsText, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 7, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addComponent(servedCupsText, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(servedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(27, 27, 27)
-                .addComponent(jButton5)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(servedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton5)))
+                .addContainerGap(140, Short.MAX_VALUE))
         );
         jPanel7Layout.setVerticalGroup(
             jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel7Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(servedCupsText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel18))
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(servedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(servedCupsText, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(servedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
-                        .addGap(41, 41, 41)
+                        .addGap(23, 23, 23)
                         .addComponent(jButton5)))
                 .addContainerGap(24, Short.MAX_VALUE))
         );
@@ -281,14 +297,14 @@ public class GUI extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("Add 200g of robusta beans");
+        jButton3.setText("Add 50g of robusta beans");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton3ActionPerformed(evt);
             }
         });
 
-        jButton4.setText("Add 200g of arabica beans");
+        jButton4.setText("Add 50g of arabica beans");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -400,16 +416,16 @@ public class GUI extends javax.swing.JFrame {
         jPanel8Layout.setHorizontalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(224, 224, 224)
+                .addGap(90, 90, 90)
                 .addComponent(prepare, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(283, Short.MAX_VALUE))
+                .addContainerGap(417, Short.MAX_VALUE))
         );
         jPanel8Layout.setVerticalGroup(
             jPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel8Layout.createSequentialGroup()
-                .addGap(20, 20, 20)
+                .addContainerGap()
                 .addComponent(prepare, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
 
         jLabel13.setText("Coffee preparation");
@@ -418,11 +434,15 @@ public class GUI extends javax.swing.JFrame {
 
         jLabel15.setText("The total calories the cup has:");
 
-        jTextField2.setEditable(false);
+        caloriesText.setEditable(false);
 
         jLabel16.setText("The amount of caffeine the cup has:");
 
-        jTextField3.setEditable(false);
+        caffeineText.setEditable(false);
+
+        jLabel12.setText("mg");
+
+        jLabel17.setText("calories");
 
         javax.swing.GroupLayout jPanel9Layout = new javax.swing.GroupLayout(jPanel9);
         jPanel9.setLayout(jPanel9Layout);
@@ -435,9 +455,15 @@ public class GUI extends javax.swing.JFrame {
                     .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 223, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(161, 161, 161))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(caloriesText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel9Layout.createSequentialGroup()
+                        .addComponent(caffeineText, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(106, 106, 106))
         );
         jPanel9Layout.setVerticalGroup(
             jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -445,11 +471,13 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(16, 16, 16)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(caloriesText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel17))
                 .addGap(18, 18, 18)
                 .addGroup(jPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel16, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                    .addComponent(jTextField3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(caffeineText, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel12))
                 .addContainerGap())
         );
 
@@ -552,14 +580,14 @@ public class GUI extends javax.swing.JFrame {
             else throw new CustomException("Please select the cup size!");
         }
         catch(CustomException e) {
-            
+            return;
         }
         
         CoffeeMachine coffeeMachine = new CoffeeMachine(getWaterLevel(), getRobustaLevel(),
                 getArabicaLevel(), coffeeType, cupSize, grindSizeBar.getValue());
         
         try {
-            if (coffeeMachine.getCoffee().amountOfWater > getWaterLevel())
+            if (coffeeMachine.getCoffee().amountOfWater + coffeeMachine.getAmountOfGrindingWater() > getWaterLevel())
                 throw new CustomException("There's no enough water, please add some!");
             
             if ((coffeeMachine.getCoffee().amountOfGroundCoffee * coffeeMachine.getCoffee().robustaRatio) > getRobustaLevel())
@@ -577,12 +605,13 @@ public class GUI extends javax.swing.JFrame {
         
         servedCupsBar.setValue(servedCupsBar.getValue() + 10);
         servedCupsText.setText(String.valueOf(servedCupsBar.getValue() / 10));
-        
         coffeeMachine.brewCoffee();
         
         setWaterLevel(coffeeMachine.getCurrentWaterLevel());
         setRobustaLevel(coffeeMachine.getCurrentRobustaLevel());
         setArabicaLevel(coffeeMachine.getCurrentArabicaLevel());
+        caffeineText.setText(String.valueOf(coffeeMachine.getCoffee().getAmountOfCaffeine()));
+        caloriesText.setText(String.valueOf(coffeeMachine.getCoffee().getAmountOfCalories()));
     }//GEN-LAST:event_prepareActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -653,6 +682,8 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JRadioButton Double;
     private javax.swing.JRadioButton americano;
     private javax.swing.JProgressBar arabicaLevelBar;
+    private javax.swing.JTextField caffeineText;
+    private javax.swing.JTextField caloriesText;
     private javax.swing.ButtonGroup coffeeTypeGroup;
     private javax.swing.ButtonGroup cupSizeGroup;
     private javax.swing.JRadioButton espresso;
@@ -664,10 +695,13 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -693,8 +727,6 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator6;
     private javax.swing.JSeparator jSeparator7;
     private javax.swing.JSeparator jSeparator8;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
     private javax.swing.JButton prepare;
     private javax.swing.JProgressBar robustaLevelBar;
     private javax.swing.JProgressBar servedCupsBar;

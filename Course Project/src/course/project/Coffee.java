@@ -1,17 +1,11 @@
 package course.project;
 
 class Coffee {
+    protected double amountOfGroundCoffee, amountOfWater, arabicaRatio, robustaRatio, calories, caffeine;
 
-    protected double amountOfGroundCoffee, amountOfWater;
-    protected double arabicaRatio, robustaRatio;
-
-    public Coffee() {
-
-    }
-
-    public Coffee(double arabicaRatio, double robustaRatio) {
-        this.arabicaRatio = arabicaRatio;
-        this.robustaRatio = robustaRatio;
+    public void calculate() {
+        calories = 1.5 * amountOfGroundCoffee;
+        caffeine = robustaRatio * amountOfGroundCoffee * 0.025 + arabicaRatio * amountOfGroundCoffee * 0.013;
     }
 
     public double getAmountOfGroundCoffee() {
@@ -20,6 +14,14 @@ class Coffee {
 
     public double getAmountOfWater() {
         return amountOfWater;
+    }
+    
+    public double getAmountOfCaffeine() {
+        return caffeine * 1000;
+    }
+    
+    public double getAmountOfCalories() {
+        return calories;
     }
 
     public String getInfo() {
