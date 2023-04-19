@@ -10,11 +10,11 @@ public class GUI extends javax.swing.JFrame {
     }
     
     public int getWaterLevel() {
-        return waterLevelBar.getValue() * 20;
+        return waterLevelBar.getValue() * 10;
     }
     
     public void setWaterLevel(int value) {
-        waterLevelBar.setValue(value / 20);
+        waterLevelBar.setValue(value / 10);
     }
     
     public int getRobustaLevel() {
@@ -243,7 +243,7 @@ public class GUI extends javax.swing.JFrame {
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jLabel3.setText("Water level (out of 2 Liters) ");
+        jLabel3.setText("Water level (out of 1 Liter) ");
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 32));
 
         waterLevelBar.setForeground(new java.awt.Color(255, 255, 255));
@@ -336,7 +336,7 @@ public class GUI extends javax.swing.JFrame {
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 450, 10));
 
         jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Add 400ml of water");
+        jButton2.setText("Add 200ml of water");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -360,7 +360,7 @@ public class GUI extends javax.swing.JFrame {
                 jButton4ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 240, 210, 40));
+        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 200, 40));
         jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 450, 10));
 
         prepare.setFont(new java.awt.Font("Segoe UI", 1, 20)); // NOI18N
@@ -565,7 +565,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_prepareActionPerformed
     
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        if (getWaterLevel() == 100)
+        if (getWaterLevel() == 1000)
             JOptionPane.showMessageDialog(this, "Already full!");
         
         else
@@ -573,7 +573,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        if (getRobustaLevel() == 100)
+        if (getRobustaLevel() == 200)
             JOptionPane.showMessageDialog(this, "Already full!");
         
         else
@@ -581,7 +581,7 @@ public class GUI extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        if (getArabicaLevel() == 100)
+        if (getArabicaLevel() == 200)
             JOptionPane.showMessageDialog(this, "Already full!");
         
         else
