@@ -14,7 +14,7 @@ public class CoffeeMachine {
         this.currentArabicaLevel = arabicaLevel;
         this.currentRobustaLevel = robustaLevel;
         
-        if (coffeeType.equals("espresso")) {
+        if (coffeeType.equals("Espresso")) {
             coffee = new Espresso(cupSize);
         }
         

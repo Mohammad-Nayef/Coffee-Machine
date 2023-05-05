@@ -1,0 +1,75 @@
+2023/05/05 22:20:35 | Single shot of Espresso.
+2023/05/05 22:20:37 | Double shot of Espresso.
+2023/05/05 22:20:39 | Single shot of Americano.
+2023/05/05 22:20:41 | Double shot of Americano.
+2023/05/05 22:20:43 | Water filled.
+2023/05/05 22:20:44 | Robusta beans filled.
+2023/05/05 22:20:44 | Arabica beans filled.
+2023/05/05 22:20:45 | Drip tray cleaned.
+2023/05/05 22:22:13 | Single shot of Espresso.
+2023/05/05 22:27:35 | Single shot of Espresso.
+2023/05/05 22:27:36 | Water filled.
+2023/05/05 22:27:36 | Robusta beans filled.
+2023/05/05 22:27:37 | Arabica beans filled.
+2023/05/05 22:27:37 | Drip tray cleaned.
+2023/05/05 22:46:48 | Single shot of Espresso.
+2023/05/05 22:46:50 | Single shot of Espresso.
+2023/05/05 22:46:51 | Single shot of Espresso.
+2023/05/05 22:46:52 | Water filled.
+2023/05/05 22:46:52 | Robusta beans filled.
+2023/05/05 22:46:53 | Arabica beans filled.
+2023/05/05 22:46:53 | Drip tray cleaned.
+2023/05/05 22:47:41 | Single shot of Espresso.
+2023/05/05 22:47:42 | Water filled.
+2023/05/05 22:50:38 | Single shot of Espresso.
+2023/05/05 22:57:08 | Single shot of Espresso.
+2023/05/05 22:57:09 | Single shot of Espresso.
+2023/05/05 23:04:50 | Single shot of Espresso.
+2023/05/05 23:05:48 | Single shot of Espresso.
+2023/05/05 23:05:51 | Double shot of Espresso.
+2023/05/05 23:05:53 | Water filled.
+2023/05/05 23:05:54 | Robusta beans filled.
+2023/05/05 23:05:57 | Arabica beans filled.
+2023/05/05 23:05:59 | Drip tray cleaned.
+2023/05/05 23:06:15 | Drip tray cleaned.
+2023/05/05 23:06:18 | Drip tray cleaned.
+2023/05/05 23:06:19 | Drip tray cleaned.
+2023/05/05 23:06:20 | Drip tray cleaned.
+2023/05/05 23:06:20 | Drip tray cleaned.
+2023/05/05 23:06:21 | Drip tray cleaned.
+2023/05/05 23:06:25 | Drip tray cleaned.
+2023/05/05 23:06:26 | Drip tray cleaned.
+2023/05/05 23:06:26 | Drip tray cleaned.
+2023/05/05 23:06:27 | Drip tray cleaned.
+2023/05/05 23:06:27 | Drip tray cleaned.
+2023/05/05 23:06:27 | Drip tray cleaned.
+2023/05/05 23:06:27 | Drip tray cleaned.
+2023/05/05 23:06:28 | Drip tray cleaned.
+2023/05/05 23:06:28 | Drip tray cleaned.
+2023/05/05 23:06:28 | Drip tray cleaned.
+2023/05/05 23:06:28 | Drip tray cleaned.
+2023/05/05 23:06:28 | Drip tray cleaned.
+2023/05/05 23:06:29 | Drip tray cleaned.
+2023/05/05 23:06:29 | Drip tray cleaned.
+2023/05/05 23:06:29 | Drip tray cleaned.
+2023/05/05 23:06:29 | Drip tray cleaned.
+2023/05/05 23:06:29 | Drip tray cleaned.
+2023/05/05 23:06:29 | Drip tray cleaned.
+2023/05/05 23:06:30 | Drip tray cleaned.
+2023/05/05 23:06:30 | Drip tray cleaned.
+2023/05/05 23:06:30 | Drip tray cleaned.
+2023/05/05 23:06:30 | Drip tray cleaned.
+2023/05/05 23:06:30 | Drip tray cleaned.
+2023/05/05 23:06:31 | Drip tray cleaned.
+2023/05/05 23:06:31 | Drip tray cleaned.
+2023/05/05 23:06:31 | Drip tray cleaned.
+2023/05/05 23:06:31 | Drip tray cleaned.
+2023/05/05 23:06:31 | Drip tray cleaned.
+2023/05/05 23:06:32 | Drip tray cleaned.
+2023/05/05 23:06:36 | Water filled.
+2023/05/05 23:06:40 | Water filled.
+2023/05/05 23:08:56 | Single shot of Espresso.
+2023/05/05 23:08:58 | Water filled.
+2023/05/05 23:09:00 | Robusta beans filled.
+2023/05/05 23:09:01 | Arabica beans filled.
+2023/05/05 23:09:02 | Drip tray cleaned.
