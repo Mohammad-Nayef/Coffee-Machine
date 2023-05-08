@@ -1,7 +1,5 @@
 package course.project;
 
-import javax.swing.JOptionPane;
-
 public class CoffeeMachine {
     private final int waterCapacity = 1000, robustaCapacity = 200, arabicaCapacity = 200; 
     private int currentWaterLevel, currentArabicaLevel, currentRobustaLevel;

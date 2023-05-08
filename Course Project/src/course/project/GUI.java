@@ -8,10 +8,23 @@ import javax.swing.JOptionPane;
 
 public class GUI extends javax.swing.JFrame {
     private String coffeeType, cupSize;
+    private Configurations config = new Configurations();
 
     public GUI() {
         initComponents();
         GUILoggerUpdate();
+        getConfig();
+    }
+    
+    public void getConfig() {
+        setWaterLevel(config.getWaterLevel());
+        setRobustaLevel(config.getRobustaLevel());
+        setArabicaLevel(config.getArabicaLevel());
+        setServedCups(config.getServedCups());
+    }
+    
+    public void updateConfig() {
+        config.update(getWaterLevel(), getRobustaLevel(), getArabicaLevel(), getServedCups());
     }
     
     public void GUILoggerUpdate() {
@@ -35,10 +48,6 @@ public class GUI extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, e.getMessage());
                 System.exit(0);
             }
-        }
-        catch(IOException ex) {
-            JOptionPane.showMessageDialog(null, ex.getMessage());
-            System.exit(0);
         }
     }
     
@@ -66,9 +75,13 @@ public class GUI extends javax.swing.JFrame {
         arabicaLevelBar.setValue((int)(value / 2));
     }
     
-    public void servedCupsCounter() {
-        servedCupsBar.setValue(servedCupsBar.getValue() + 10);
-        servedCupsText.setText(String.valueOf(servedCupsBar.getValue() / 10));
+    public void setServedCups(int value) {
+        servedCupsBar.setValue(value * 10);
+        servedCupsText.setText(String.valueOf(value));
+    }
+    
+    public int getServedCups() {
+        return servedCupsBar.getValue() / 10;
     }
     
     @SuppressWarnings("unchecked")
@@ -107,12 +120,12 @@ public class GUI extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         servedCupsText = new javax.swing.JTextField();
         servedCupsBar = new javax.swing.JProgressBar();
-        jButton5 = new javax.swing.JButton();
+        cleanDrip = new javax.swing.JButton();
         jLabel18 = new javax.swing.JLabel();
         jSeparator7 = new javax.swing.JSeparator();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
+        fullWater = new javax.swing.JButton();
+        fillRobusta = new javax.swing.JButton();
+        fillArabica = new javax.swing.JButton();
         jSeparator9 = new javax.swing.JSeparator();
         jSeparator10 = new javax.swing.JSeparator();
         jSeparator11 = new javax.swing.JSeparator();
@@ -290,7 +303,6 @@ public class GUI extends javax.swing.JFrame {
         jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 200, 32));
 
         waterLevelBar.setForeground(new java.awt.Color(255, 255, 255));
-        waterLevelBar.setValue(100);
         waterLevelBar.setStringPainted(true);
         jPanel2.add(waterLevelBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 39, 180, 40));
 
@@ -299,7 +311,6 @@ public class GUI extends javax.swing.JFrame {
         jPanel2.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, 230, 32));
 
         robustaLevelBar.setForeground(new java.awt.Color(255, 255, 255));
-        robustaLevelBar.setValue(100);
         robustaLevelBar.setStringPainted(true);
         jPanel2.add(robustaLevelBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 149, 180, 40));
 
@@ -308,7 +319,6 @@ public class GUI extends javax.swing.JFrame {
         jPanel2.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 230, 32));
 
         arabicaLevelBar.setForeground(new java.awt.Color(255, 255, 255));
-        arabicaLevelBar.setValue(100);
         arabicaLevelBar.setStringPainted(true);
         jPanel2.add(arabicaLevelBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 269, 180, 40));
         jPanel2.add(jSeparator6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 91, 517, 20));
@@ -326,11 +336,11 @@ public class GUI extends javax.swing.JFrame {
 
         servedCupsBar.setForeground(new java.awt.Color(255, 255, 255));
 
-        jButton5.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton5.setText("Clean the drip tray");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        cleanDrip.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        cleanDrip.setText("Clean the drip tray");
+        cleanDrip.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                cleanDripActionPerformed(evt);
             }
         });
 
@@ -347,7 +357,7 @@ public class GUI extends javax.swing.JFrame {
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(servedCupsBar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton5)
+                        .addComponent(cleanDrip)
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(jPanel7Layout.createSequentialGroup()
                         .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -368,39 +378,39 @@ public class GUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(jPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(servedCupsBar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
+                    .addComponent(cleanDrip, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
 
         jPanel2.add(jPanel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 340, -1, 130));
         jPanel2.add(jSeparator7, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, 450, 10));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton2.setText("Fill Water");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        fullWater.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fullWater.setText("Fill Water");
+        fullWater.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                fullWaterActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 140, 40));
+        jPanel2.add(fullWater, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 40, 140, 40));
 
-        jButton3.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton3.setText("Fill Robusta Beans");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        fillRobusta.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fillRobusta.setText("Fill Robusta Beans");
+        fillRobusta.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                fillRobustaActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 40));
+        jPanel2.add(fillRobusta, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 150, -1, 40));
 
-        jButton4.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        jButton4.setText("Fill Arabica Beans");
-        jButton4.addActionListener(new java.awt.event.ActionListener() {
+        fillArabica.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        fillArabica.setText("Fill Arabica Beans");
+        fillArabica.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                fillArabicaActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 150, 40));
+        jPanel2.add(fillArabica, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 270, 150, 40));
         jPanel2.add(jSeparator9, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 210, 450, 10));
         jPanel2.add(jSeparator10, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 450, 10));
         jPanel2.add(jSeparator11, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, 450, 10));
@@ -607,7 +617,7 @@ public class GUI extends javax.swing.JFrame {
             return;
         }
         
-        servedCupsCounter();
+        setServedCups(getServedCups() + 1);
         coffeeMachine.brewCoffee();
         
         setWaterLevel(coffeeMachine.getCurrentWaterLevel());
@@ -618,9 +628,10 @@ public class GUI extends javax.swing.JFrame {
         
         MyLogger.log(cupSize + " shot of " + coffeeType);
         GUILoggerUpdate();
+        updateConfig();
     }//GEN-LAST:event_prepareActionPerformed
     
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void fullWaterActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fullWaterActionPerformed
         if (getWaterLevel() == 1000)
             JOptionPane.showMessageDialog(this, "Already full!");
         
@@ -629,10 +640,12 @@ public class GUI extends javax.swing.JFrame {
         
             MyLogger.log("Water filled");
             GUILoggerUpdate();
+            updateConfig();
         }
-    }//GEN-LAST:event_jButton2ActionPerformed
+        
+    }//GEN-LAST:event_fullWaterActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void fillRobustaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fillRobustaActionPerformed
         if (getRobustaLevel() == 200)
             JOptionPane.showMessageDialog(this, "Already full!");
         
@@ -641,10 +654,12 @@ public class GUI extends javax.swing.JFrame {
         
             MyLogger.log("Robusta beans filled");
             GUILoggerUpdate();
+            updateConfig();
         }
-    }//GEN-LAST:event_jButton3ActionPerformed
+        
+    }//GEN-LAST:event_fillRobustaActionPerformed
 
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+    private void fillArabicaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_fillArabicaActionPerformed
         if (getArabicaLevel() == 200)
             JOptionPane.showMessageDialog(this, "Already full!");
         
@@ -653,10 +668,12 @@ public class GUI extends javax.swing.JFrame {
         
             MyLogger.log("Arabica beans filled");
             GUILoggerUpdate();
+            updateConfig();
         }
-    }//GEN-LAST:event_jButton4ActionPerformed
+        
+    }//GEN-LAST:event_fillArabicaActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void cleanDripActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cleanDripActionPerformed
         if (servedCupsBar.getValue() == 0) {
             JOptionPane.showMessageDialog(this, "Already clean!");
         }
@@ -667,8 +684,10 @@ public class GUI extends javax.swing.JFrame {
 
             MyLogger.log("Drip tray cleaned");
             GUILoggerUpdate();
+            updateConfig();
         }
-    }//GEN-LAST:event_jButton5ActionPerformed
+        
+    }//GEN-LAST:event_cleanDripActionPerformed
 
     private void servedCupsTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_servedCupsTextActionPerformed
         // TODO add your handling code here:
@@ -715,14 +734,14 @@ public class GUI extends javax.swing.JFrame {
     private javax.swing.JProgressBar arabicaLevelBar;
     private javax.swing.JTextField caffeineText;
     private javax.swing.JTextField caloriesText;
+    private javax.swing.JButton cleanDrip;
     private javax.swing.ButtonGroup coffeeTypeGroup;
     private javax.swing.ButtonGroup cupSizeGroup;
     private javax.swing.JRadioButton espresso;
+    private javax.swing.JButton fillArabica;
+    private javax.swing.JButton fillRobusta;
+    private javax.swing.JButton fullWater;
     private javax.swing.JSlider grindSizeBar;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

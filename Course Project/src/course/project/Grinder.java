@@ -1,7 +1,6 @@
 package course.project;
 
 public class Grinder {
-
     private double grindSize, amountOfCoffee;
 
     public Grinder(double grindSize, double amountOfCoffee) {

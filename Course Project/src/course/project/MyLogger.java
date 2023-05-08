@@ -41,7 +41,7 @@ public class MyLogger {
                     fileWriter.close();
                 }
                 catch(IOException ex){
-                    JOptionPane.showMessageDialog(null, "Could not close the file!");
+                    JOptionPane.showMessageDialog(null, "Could not close the log file!");
                     System.exit(0);
                 }
             }

@@ -1,7 +1,6 @@
 package course.project;
 
 public class Americano extends Coffee {
-
     public Americano(String size) {
         amountOfGroundCoffee = 7;
         amountOfWater = 170;

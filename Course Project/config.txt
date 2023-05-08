@@ -1,0 +1,4 @@
+Water level = 0
+Robusta level = 0
+Arabica level = 0
+Number of served cups = 0
