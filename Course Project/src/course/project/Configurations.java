@@ -12,8 +12,8 @@ public class Configurations {
 
     public Configurations() {
          try {
-            File logFile = new File("config.txt");
-            Scanner reader = new Scanner(logFile);
+            File configFile = new File("config.txt");
+            Scanner reader = new Scanner(configFile);
             int[] values = new int[4];
             
             for (int i = 0; i < 4; i++) {
